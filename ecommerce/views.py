@@ -4,6 +4,9 @@ from .forms import LoginForm,RegisterForm
 from django.contrib.auth import authenticate,login,get_user_model
 
 
+def HomePage(request):
+    return render(request,"home.html",{})
+
 def LoginPage(request):
 
     form=LoginForm(request.POST or None)
