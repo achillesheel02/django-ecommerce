@@ -10,6 +10,7 @@ from .models import Product
 class ProductListView(ListView):
     queryset = Product.objects.all()
 
+
 class ProductDetailView(DetailView):
     queryset = Product.objects.all()
 
@@ -20,3 +21,10 @@ class ProductDetailView(DetailView):
         if instance is None:
             raise Http404("Product does not exist.")
         return instance
+
+class ProductFeaturedView(ListView):
+    template_name = 'products/products-featured.html'
+
+    def get_queryset(self):
+        request = self.request
+        return Product.objects.featured()
