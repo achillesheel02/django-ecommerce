@@ -18,6 +18,7 @@ from django.contrib import admin
 from .views import LoginPage,RegisterPage,HomePage
 from django.conf import settings
 from django.conf.urls.static import static
+from products.views import ProductListView
 
 
 urlpatterns = [
@@ -25,6 +26,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/$', LoginPage),
     url(r'^register/$', RegisterPage),
+    url(r'^products/', ProductListView.as_view()),
 ]
 
 if settings.DEBUG:
