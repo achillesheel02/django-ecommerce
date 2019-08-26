@@ -27,8 +27,9 @@ urlpatterns = [
     url(r'^login/$', LoginPage),
     url(r'^register/$', RegisterPage),
     url(r'^products/$', ProductListView.as_view()),
-    url(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
     url(r'^products/featured/$', ProductFeaturedView.as_view()),
+    url(r'^products/(?P<slug>[\w-]+)/$', ProductDetailView.as_view()),
+
 ]
 
 if settings.DEBUG:
