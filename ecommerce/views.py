@@ -11,17 +11,19 @@ def LoginPage(request):
 
     form=LoginForm(request.POST or None)
     print("not auth")
+    context={}
     if form.is_valid():
         username=form.cleaned_data["username"]
         password=form.cleaned_data["password"]
         user=authenticate(request,username=username,password=password)
+        print(user)
         if user is not None:
             login(request,user)
             #context['form']=LoginForm()
             print('auth')
             return redirect("/admin")
         else:
-            print("error")
+            context['error'] =  'Username or password incorrect'
     context={
             "form":form,
             }
