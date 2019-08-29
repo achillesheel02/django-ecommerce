@@ -21,11 +21,11 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    url(r'^$', HomePage),
-    url(r'^admin/', admin.site.urls),
-    url(r'^login/$', LoginPage),
-    url(r'^register/$', RegisterPage),
-    url(r'^products/', include("products.urls")),
+    url(r'^$', HomePage, name='home'),
+    url(r'^admin/', admin.site.urls, name='admin'),
+    url(r'^login/$', LoginPage, name='login'),
+    url(r'^register/$', RegisterPage, name='register'),
+    url(r'^products/', include("products.urls", namespace='products')),
 
 ]
 
