@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Products List{% endblock %}
+{%  block content %}
     {% if object_list %}
     {%  for obj in object_list %}
-    <a href="{{ obj.get_absolute_url }}">{{  obj.title }}</a>
+    <a href="{{ obj.get_absolute_url }}">{{  obj.title }} {% if obj.featured %} <small>(this object is featured!){% endif %}</small></a>
     <p>{{ obj.description }}</p>
     <p>{{ obj.price }}</p>
+
     {% endfor %}
     {% else %}
     <p>No products added yet.</p>
     {% endif %}
-</body>
-</html>
+{% endblock %}
