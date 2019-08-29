@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Featured items</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Featured Items{% endblock %}
+{%  block content %}
     {% if object_list %}
     {%  for obj in object_list %}
     <h1>{{  obj.title }}</h1>
@@ -14,5 +10,4 @@
     {% else %}
     <p>No products added yet in the featured list</p>
     {% endif %}
-</body>
-</html>
+{% endblock %}

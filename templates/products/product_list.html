@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
 {% block title %}Products List{% endblock %}
 {%  block content %}
-    {% if object_list %}
-    {%  for obj in object_list %}
-    <a href="{{ obj.get_absolute_url }}">{{  obj.title }} {% if obj.featured %} <small>(this object is featured!){% endif %}</small></a>
-    <p>{{ obj.description }}</p>
-    <p>{{ obj.price }}</p>
+    <div class="row">
+        {% if object_list %}
+            {%  for obj in object_list %}
+        <div class="col">
+                {% include 'products/snippets/snippets.html' with instance=obj %}
+        </div>
+            {% endfor %}
+        {% else %}
+            <p>No products added yet.</p>
+        {% endif %}
 
-    {% endfor %}
-    {% else %}
-    <p>No products added yet.</p>
-    {% endif %}
+    </div>
+    </div>
 {% endblock %}

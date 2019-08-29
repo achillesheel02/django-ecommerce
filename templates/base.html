@@ -7,8 +7,11 @@
 {% include 'base/css.html' %}
 </head>
 <body>
+<div class="container">
+{% include 'base/navbar.html' %}
 {% block content %}
 {% endblock %}
 {% include 'base/js.html' %}
+</div>
 </body>
 </html>
