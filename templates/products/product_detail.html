@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% block title %}{{ object.title }}{% endblock %}
 {%  block content %}
-<p>{{ object.title }}</p>
-<p>{{ object.description}}</p>
+<p>{{ object.title | title}} <small>added {{ object.timestamp | timesince }} ago</small></p>
+    <img class="img-fluid" src="{{ object.image.url }}" alt="Product Image">
+<p>{{ object.description | linebreaks}}</p>
 <p>{{ object.price }}</p>
-<img src="{{ object.image.url }}" alt="Product Image">
+
 {% endblock %}

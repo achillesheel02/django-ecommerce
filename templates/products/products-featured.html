@@ -4,7 +4,7 @@
     {% if object_list %}
     {%  for obj in object_list %}
     <h1>{{  obj.title }}</h1>
-    <p>{{ obj.description }}</p>
+    <p>{{ obj.description | truncatewords:50}}</p>
     <p>{{ obj.price }}</p>
     {% endfor %}
     {% else %}

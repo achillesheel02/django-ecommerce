@@ -5,7 +5,7 @@
         {% if object_list %}
             {%  for obj in object_list %}
         <div class="col">
-                {% include 'products/snippets/snippets.html' with instance=obj %}
+                {% include 'products/snippets/card.html' with instance=obj %}
         </div>
             {% endfor %}
         {% else %}
