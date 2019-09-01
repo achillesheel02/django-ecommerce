@@ -2,10 +2,21 @@
 {% block title %}Search Results for '{{ request.GET.q }}'{% endblock %}
 {%  block content %}
     <div class="row">
-    <div class="col-12 mb-3">
+    {%  if request.GET.q %}
+    <div class="col-12 mb-3 mt-3">
         Searched for "<b>{{ request.GET.q }}</b>≤"
         <hr>
     </div>
+    {% else %}
+    <div class="col-12 col-md-6 mx-auto py-5 ">
+        {% include "search/snippets/search-form.html" %}
+
+    </div>
+    <div class="col-12"><hr></div>
+        </div>
+
+        <div class="row">
+    {% endif %}
         {% if object_list %}
             {%  for obj in object_list %}
         <div class="col">
